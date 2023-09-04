@@ -1,0 +1,44 @@
+<div class="card mt-3">
+  <div class="card-header">
+    Employee Information
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        Name
+      </div>
+      <div class="col">
+        : {{employee.name}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        Position
+      </div>
+      <div class="col">
+        : {{employee.position}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        Hiring Date
+      </div>
+      <div class="col">
+        : {{employee.hiringDate | date: "yyyy-MM-dd"}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        Salary
+      </div>
+      <div class="col">
+        : {{employee.salary}}
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <button type="button" class="btn btn-outline-info me-3" routerLink="/employee">Back</button>
+    <button type="button" class="btn btn-outline-primary" routerLink="/employee/update/{{employee.id}}">Edit</button>
+  </div>
+</div>
+<app-error [header]="title" [body]="errMsg"></app-error>

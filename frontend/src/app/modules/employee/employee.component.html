@@ -1,0 +1,27 @@
+<button type="button" class="btn btn-outline-primary my-3" routerLink="/employee/add">Add</button>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Position</th>
+    <th scope="col">Hiring Date</th>
+    <th scope="col">Salary</th>
+    <th scope="col">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let employee of employees">
+    <td>{{employee.name}}</td>
+    <td>{{employee.position}}</td>
+    <td>{{employee.hiringDate}}</td>
+    <td>{{employee.salary}}</td>
+    <td>
+      <button type="button" class="btn btn-outline-info me-3" routerLink="/employee/details/{{employee.id}}">Details</button>
+      <button type="button" class="btn btn-outline-danger" (click)="delete(employee.id)">Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<app-success [header]="title" [body]="body" (onClose)="getAllUsers()"></app-success>
+<app-error [header]="title" [body]="errMsg"></app-error>

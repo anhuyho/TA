@@ -1,0 +1,32 @@
+<h1>{{title}}</h1>
+<form class="mt-3" [formGroup]="employeeForm" (ngSubmit)="submit()">
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" class="form-control" id="name"
+           formControlName="name" [class.is-invalid]="formErrors.name" (blur)="checkValidation()">
+    <small class="text-danger" [class.d-none]="!formErrors.name">{{formErrors.name}}</small>
+  </div>
+  <div class="mb-3">
+    <label for="position" class="form-label">Position</label>
+    <input type="text" class="form-control" id="position" formControlName="position">
+  </div>
+  <div class="mb-3">
+    <label for="hiringDate" class="form-label">Hiring Date</label>
+    <input type="text" class="form-control" id="hiringDate"
+           formControlName="hiringDate" [class.is-invalid]="formErrors.hiringDate" (blur)="checkValidation()">
+    <small class="text-danger" [class.d-none]="!formErrors.hiringDate">{{formErrors.hiringDate}}</small>
+  </div>
+  <div class="mb-3">
+    <label for="salary" class="form-label">Salary</label>
+    <input type="text" class="form-control" id="salary"
+           formControlName="salary" [class.is-invalid]="formErrors.salary" (blur)="checkValidation()">
+    <small class="text-danger" [class.d-none]="!formErrors.salary">{{formErrors.salary}}</small>
+  </div>
+  <div>
+    <button type="submit" class="btn btn-outline-primary me-3" [class.disabled]="employeeForm.invalid">Submit</button>
+    <button type="button" class="btn btn-outline-secondary" routerLink="/employee">Cancel</button>
+  </div>
+</form>
+
+<app-success [header]="title" [body]="body" (onClose)="close()"></app-success>
+<app-error [header]="title" [body]="errorMsg"></app-error>
