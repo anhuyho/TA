@@ -8,6 +8,7 @@ namespace Service1.API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 public class EmployeesController : Controller
 {
     private readonly IEmployeeServices _employeeServices;

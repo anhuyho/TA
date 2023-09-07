@@ -4,6 +4,8 @@ import { AppRoutingModule } from './app-routing.module';
 import {SharedModule} from "./modules/shared/shared.module";
 
 import { AppComponent } from './app.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptorService } from './interceptors/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,11 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     SharedModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
